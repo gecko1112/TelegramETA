@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GPS Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #000000;
+      color: #32CD32;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 1.5em;
+      letter-spacing: 1px;
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: none;
+    }
+
+    /* Pulsing animation for loading dots */
+    @keyframes pulse {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 1; }
+    }
+
+    .loading-dots span {
+      animation: pulse 1.5s infinite;
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #32CD32;
+    }
+    .loading-dots span:nth-child(1) { animation-delay: 0s; }
+    .loading-dots span:nth-child(2) { animation-delay: 0.3s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.6s; }
+
+    /* Icons */
+    .icon {
+      font-size: 1.5em;
+    }
+    .success {
+      color: #32CD32; /* bright green */
+    }
+    .error {
+      color: #FF4444; /* red */
+    }
+  </style>
+</head>
+<body>
+  <h1>GPS TRACKER RUNNING</h1>
+  <div id="status">
+    Trying to send your location
+    <div class="loading-dots">
+      <span>.</span><span>.</span><span>.</span>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='location.js') }}"></script>
+</body>
+</html>
